@@ -211,7 +211,7 @@ def load_template(default_name: str = "Elect Nano 2025 Label Template V1.pd
     uploaded = st.session_state.get("_uploaded_template")
     if uploaded is not None:
         return uploaded.getvalue()  # type: ignore[no-any-return]
-    script_dir = Path(__file__).resolve().parent
+    script_dir = Path.cwd()  # use current working directory
     candidate = script_dir / default_name
     if candidate.exists():
         return candidate.read_bytes()
