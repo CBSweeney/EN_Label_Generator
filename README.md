@@ -1,19 +1,21 @@
-# 🎈 Blank app template
+# Product Label Generator
 
-A simple Streamlit app template for you to modify!
+This Streamlit app generates product label PDFs with embedded GS1 DataMatrix barcodes.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+## Features
 
-### How to run it on your own machine
+- Upload your own PDF template
+- Add product name, SKU, net weight, lot number, manufacture and expiry dates
+- GS1-compliant barcode including AIs: GTIN (01), Net Weight (3103), MFG Date (11), EXP Date (17), Lot (10), COO (422), Manufacturer Location (91), Product Name (92), and SKU (21)
+- Caches output to speed up duplicate requests
 
-1. Install the requirements
+## Running Locally
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_label_generator.py
+```
 
-2. Run the app
+## Deployment
 
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+Place your label template file in the same directory or upload it at runtime.

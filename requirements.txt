@@ -1,1 +1,6 @@
 streamlit
+reportlab
+PyPDF2
+treepoem
+Pillow
+python-dateutil
