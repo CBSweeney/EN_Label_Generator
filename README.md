@@ -13,7 +13,7 @@ This Streamlit app generates product label PDFs with embedded GS1 DataMatrix bar
 
 ```bash
 pip install -r requirements.txt
-streamlit run streamlit_label_generator.py
+streamlit run streamlit_app.py
 ```
 
 ## Deployment
