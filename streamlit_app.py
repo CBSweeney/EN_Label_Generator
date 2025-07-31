@@ -320,6 +320,7 @@ def main() -> None:
 
         # Display PDF in interactive viewer
         pdf_viewer(pdf_bytes, width=700, height=1000, zoom_level=1.0)
+        st.markdown("<div style='margin-top: -10px'></div>", unsafe_allow_html=True) #keep spacing between PDF preview and download button tight
 
         # Offer download
         st.download_button(
