@@ -40,6 +40,7 @@ from PyPDF2 import PdfReader, PdfWriter
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import mm
 from reportlab.lib.utils import ImageReader
+from streamlit_pdf_viewer import pdf_viewer
 
 try:
     import treepoem  # type: ignore[import]
@@ -317,21 +318,8 @@ def main() -> None:
 
         st.success("✅ Label generated successfully!")
 
-        ## Show inline preview
-        #b64 = base64.b64encode(pdf_bytes).decode("utf-8")
-        #iframe = f'<iframe src="data:application/pdf;base64,{b64}" width="700" height="500" type="application/pdf"></iframe>'
-        #st.markdown(iframe, unsafe_allow_html=True)
-
-        # Show inline preview using <object> (more Chrome-friendly)
-        b64 = base64.b64encode(pdf_bytes).decode("utf-8")
-        st.components.v1.html(
-            f"""
-            <object data="data:application/pdf;base64,{b64}" type="application/pdf" width="700" height="500">
-                <p>Your browser does not support embedded PDFs. Please use the download button below.</p>
-            </object>
-            """,
-            height=500,
-        )
+        # Display PDF in interactive viewer
+        pdf_viewer(pdf_bytes, width=700, height=1000, zoom_level=1.0)
 
         # Offer download
         st.download_button(
