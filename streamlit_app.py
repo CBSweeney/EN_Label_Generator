@@ -244,11 +244,16 @@ def main() -> None:
     mfr_loc_options = ["A-PCT", "B-PCT", "C-PCT", "A-SHR", "A-MSA"]
 
     with st.form("label_form"):
-        name = st.text_input("Product Name", value="THE TERMINATOR ™ COC") #default Product Name here
-        raw_name = name
-        name = sanitize_gs1_text(raw_name.replace(" ", ""))
-        if name != raw_name:
-            st.warning("Product Name contains invalid characters or spaces. It has been sanitized:\n" f"`{name}`")
+        raw_name = st.text_input("Product Name", value="THE TERMINATOR ™ COC")
+
+        # For GS1 encoding only
+        sanitized_name = sanitize_gs1_text(raw_name.replace(" ", ""))
+        if sanitized_name != raw_name:
+            st.warning(
+                "Product Name contains invalid characters for GS1 encoding. "
+                f"It will be encoded as:\n`{sanitized_name}`"
+            )
+
         sku = st.text_input("SKU", value="X-MC-CO-EMI-000-01") #default SKU here
         net_weight = st.number_input(
             "Net Weight (kg)",
@@ -300,12 +305,12 @@ def main() -> None:
             quantity_kg=net_weight,
             mfr_loc=mfr_loc,
             country_code=coo_code,
-            product_name=name,
+            product_name=sanitized_name,
             sku=sku,
         )
         st.code(gs1_data, language="text")
         pdf_bytes = render_label(
-            name=name,
+            name=raw_name,
             sku=sku,
             net_weight=net_weight,
             lot_code=lot_num,
