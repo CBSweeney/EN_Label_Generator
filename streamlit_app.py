@@ -316,10 +316,23 @@ def main() -> None:
         )
 
         st.success("✅ Label generated successfully!")
-        # Show inline preview
+
+        ## Show inline preview
+        #b64 = base64.b64encode(pdf_bytes).decode("utf-8")
+        #iframe = f'<iframe src="data:application/pdf;base64,{b64}" width="700" height="500" type="application/pdf"></iframe>'
+        #st.markdown(iframe, unsafe_allow_html=True)
+
+        # Show inline preview using <object> (more Chrome-friendly)
         b64 = base64.b64encode(pdf_bytes).decode("utf-8")
-        iframe = f'<iframe src="data:application/pdf;base64,{b64}" width="700" height="500" type="application/pdf"></iframe>'
-        st.markdown(iframe, unsafe_allow_html=True)
+        st.components.v1.html(
+            f"""
+            <object data="data:application/pdf;base64,{b64}" type="application/pdf" width="700" height="500">
+                <p>Your browser does not support embedded PDFs. Please use the download button below.</p>
+            </object>
+            """,
+            height=500,
+        )
+
         # Offer download
         st.download_button(
             label="📥 Download Label PDF",
