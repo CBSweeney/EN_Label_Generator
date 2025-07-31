@@ -221,7 +221,7 @@ def load_template(default_name: str = "Elect Nano 2025 Label Template V1.pdf") -
 
 def main() -> None:
     st.set_page_config(page_title="Product Label Generator", layout="centered")
-    st.title("📋 Product Label Generator with Background PDF")
+    st.title("Elect Nano Product Label Generator from PDF Template")
 
     # Allow template upload
     with st.expander("⚙️ Template settings", expanded=False):
@@ -229,7 +229,7 @@ def main() -> None:
             "Optional: upload a custom background PDF (one page only)",
             type=["pdf"],
             key="template_file",
-            help="If no file is uploaded, the app will look for a bundled template named 'Elect Nano 2025 Label Template V1.pdf'.",
+            help="If no file is uploaded, the app will look for a bundled template named 'Elect Nano 2025 Label Template V1.pdf'.",
         )
         if uploaded_file:
             # Store in session state so load_template can find it
@@ -318,10 +318,6 @@ def main() -> None:
 
         st.success("✅ Label generated successfully!")
 
-        # Display PDF in interactive viewer
-        pdf_viewer(pdf_bytes, width=700, height=1000, zoom_level=1.0)
-        st.markdown("<div style='margin-top: -10px'></div>", unsafe_allow_html=True) #keep spacing between PDF preview and download button tight
-
         # Offer download
         st.download_button(
             label="📥 Download Label PDF",
@@ -330,6 +326,8 @@ def main() -> None:
             mime="application/pdf",
         )
 
+        # Display PDF in interactive viewer
+        pdf_viewer(pdf_bytes, width=700, height=1000, zoom_level=1.0)
 
 if __name__ == "__main__":  # pragma: no cover
     main()
