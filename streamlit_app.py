@@ -200,7 +200,7 @@ def render_label(
     return buffer.getvalue()
 
 
-def load_template(default_name: str = "Elect Nano 2025 Label Template V1.pdf") -> Optional[bytes]:
+def load_template(default_name: str = "Elect Nano 2025 Label Template V1.pdf") -> Optional[bytes]:
     """Load the template PDF either from an uploaded file or packaged resource.
 
     If the user uploads a template using the file uploader, that file is used.
