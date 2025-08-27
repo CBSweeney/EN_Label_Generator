@@ -269,7 +269,7 @@ def main() -> None:
             st.warning("Lot # contains invalid characters. It has been sanitized to comply with GS1 rules:\n" f"`{lot_num}`")
         mfg_date = st.date_input("Manufacturing Date", value=date.today())
 
-        mfr_loc = st.selectbox("Manufacturing Location", options=mfr_loc_options, index=mfr_loc_options.index("A-MSA"))
+        mfr_loc = st.selectbox("Manufacturing Location", options=mfr_loc_options, index=mfr_loc_options.index("A-GTW"))
         coo_display = st.selectbox("Country of Origin", options=list(country_options.keys()), index=0)
         coo_code = country_options[coo_display]
 
