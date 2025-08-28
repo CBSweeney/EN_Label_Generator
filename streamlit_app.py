@@ -241,7 +241,7 @@ def main() -> None:
         "Japan": "392",
         "China": "156",
     }
-    mfr_loc_options = ["A-PCT", "B-PCT", "C-PCT", "A-SHR", "A-GTW"]
+    mfr_loc_options = ["A-PCT", "B-PCT", "C-PCT", "A-SHR", "A-GTW", "A-FJI"]
 
     with st.form("label_form"):
         raw_name = st.text_input("Product Name", value="THE TERMINATOR ™ COC")
