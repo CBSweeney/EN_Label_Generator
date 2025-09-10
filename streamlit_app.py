@@ -171,9 +171,9 @@ def render_label(
     c.setFont("Helvetica", font_size)
     c.drawString(start_x, start_y, f"NAME: {name}")
     c.drawString(start_x, start_y - step_y, f"SKU: {sku}")
-    c.drawString(start_x, start_y - 2 * step_y, f"Net Weight: {net_weight:.2f} KG")
-    c.drawString(start_x, start_y - 3 * step_y, f"Lot #: {lot_code}")
-    c.drawString(start_x, start_y - 4 * step_y, f"Mfg. Date: {mfg_date:%Y-%m-%d}")
+    c.drawString(start_x, start_y - 2 * step_y, f"NET WEIGHT: {net_weight:.2f} KG")
+    c.drawString(start_x, start_y - 3 * step_y, f"LOT #: {lot_code}")
+    c.drawString(start_x, start_y - 4 * step_y, f"MFG. DATE: {mfg_date:%Y-%m-%d}")
     c.drawString(start_x, start_y - 5 * step_y, f"COO: {coo_display}")
 
     # Generate and insert the Data Matrix barcode
