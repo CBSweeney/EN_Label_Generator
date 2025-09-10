@@ -244,7 +244,7 @@ def main() -> None:
     mfr_loc_options = ["A-PCT", "B-PCT", "C-PCT", "A-SHR", "A-GTW", "A-FJI"]
 
     with st.form("label_form"):
-        raw_name = st.text_input("Product Name", value="THE TERMINATOR ™ COC")
+        raw_name = st.text_input("Product Name", value="THE TERmmINATOR™ COC")
 
         # For GS1 encoding only
         sanitized_name = sanitize_gs1_text(raw_name.replace(" ", ""))
