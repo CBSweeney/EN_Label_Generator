@@ -167,7 +167,7 @@ def render_label(
     start_x = 5 * mm
     start_y = 70 * mm
     step_y = 8.5 * mm
-    font_size = 20
+    font_size = 18
     c.setFont("Helvetica", font_size)
     c.drawString(start_x, start_y, f"NAME: {name}")
     c.drawString(start_x, start_y - step_y, f"SKU: {sku}")
