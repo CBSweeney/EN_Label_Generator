@@ -201,7 +201,7 @@ def render_label(
     return buffer.getvalue()
 
 
-def load_template(default_name: str = "Elect Nano 2025 Label Template V1.pdf") -> Optional[bytes]:
+def load_template(default_name: str = "Elect Nano 2026 Label Template V1.pdf") -> Optional[bytes]:
     """Load the template PDF either from an uploaded file or packaged resource.
 
     If the user uploads a template using the file uploader, that file is used.
@@ -229,7 +229,7 @@ def main() -> None:
             "Optional: upload a custom background PDF (one page only)",
             type=["pdf"],
             key="template_file",
-            help="If no file is uploaded, the app will look for a bundled template named 'Elect Nano 2025 Label Template V1.pdf'.",
+            help="If no file is uploaded, the app will look for a bundled template named 'Elect Nano 2026 Label Template V1.pdf'.",
         )
         if uploaded_file:
             # Store in session state so load_template can find it
@@ -244,7 +244,7 @@ def main() -> None:
     mfr_loc_options = ["A-PCT", "B-PCT", "C-PCT", "A-SHR", "A-GTW", "A-FJI"]
 
     with st.form("label_form"):
-        raw_name = st.text_input("Product Name", value="THE TERmmINATOR™ COC")
+        raw_name = st.text_input("Product Name", value="PRODUCT NAME")
 
         # For GS1 encoding only
         sanitized_name = sanitize_gs1_text(raw_name.replace(" ", ""))
@@ -254,7 +254,7 @@ def main() -> None:
                 f"It will be encoded as:\n`{sanitized_name}`"
             )
 
-        sku = st.text_input("SKU", value="X-MC-CO-EMI-000-01") #default SKU here
+        sku = st.text_input("SKU", value="E-00-00-000-000-00") #default SKU here
         net_weight = st.number_input(
             "Net Weight (kg)",
             value=25.00,
@@ -285,7 +285,7 @@ def main() -> None:
         if bg_bytes is None:
             st.error(
                 "No background PDF found. Please upload a template or place the default file "
-                "named 'Elect Nano 2025 Label Template V1.pdf' in the same directory as this script."
+                "named 'Elect Nano 2026 Label Template V1.pdf' in the same directory as this script."
             )
             return
 
