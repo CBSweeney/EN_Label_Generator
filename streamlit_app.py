@@ -241,7 +241,7 @@ def main() -> None:
         "Japan": "392",
         "China": "156",
     }
-    mfr_loc_options = ["A-PCT", "B-PCT", "C-PCT", "A-SHR", "A-GTW", "A-FJI", "A-FNK", "B-FNK", "A-TRD"]
+    mfr_loc_options = ["A-PCT", "B-PCT", "C-PCT", "A-KNG", "B-KNG", "A-SHR", "A-GTW", "A-FJI", "A-FNK", "B-FNK", "A-TRD"]
 
     with st.form("label_form"):
         raw_name = st.text_input("Product Name", value="PRODUCT NAME")
